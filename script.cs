@@ -30,8 +30,23 @@ private void HandleCommunication(string argument, UpdateType updateSource){
 
 			//Only listen if it matches our tag
             if(myIGCMessage.Tag == _broadCastTag){
-
+                if(myIGCMessage.Data is string){
+                    string str = myIGCMessage.Data.ToString();
+                    ExecuteCommandByString(str);
+                }
             }
         }
+    }
+}
+
+//Function that is called when the Launch command is sent
+private void ExecuteCommandByString(string command){
+    List<IMyTerminalBlock> blocks = new List<IMyTerminalBlock>();
+    GridTerminalSystem.SearchBlocksOfName("[" + command + "]", blocks);
+    try{
+        var timer = blocks[0] as IMyTimerBlock;
+        timer.Trigger();
+    }catch(Exception e){
+        Echo("'[" + command + "]' timer block missing.");
     }
 }
