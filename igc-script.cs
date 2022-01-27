@@ -41,3 +41,13 @@ private void TriggerTimerFromString(string str){
     }catch(Exception e){
         Echo("'[" + str + "]' timer block missing.");
     }
+}
+
+
+/*
+Todo
+test sending tuples
+
+var t = (speed: 4.5, altitude: 3);
+Echo($"Speed is {t.speed} and rocket is currently at {t.altitude} meters up);
+*/
