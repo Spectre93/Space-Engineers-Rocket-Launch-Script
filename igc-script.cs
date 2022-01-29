@@ -1,4 +1,5 @@
 string _broadCastTag = "IGC SE-RLS";
+bool alsoRunOnLocalGrid = true;
 IMyBroadcastListener _myBroadcastListener;
 
 public Program() { 
@@ -9,6 +10,9 @@ public Program() {
 
 public void Main(string argument, UpdateType updateSource){
 	HandleCommunication(argument, updateSource);
+    if(alsoRunOnLocalGrid){
+        TriggerTimerFromString(argument);
+    }
 }
 
 private void HandleCommunication(string argument, UpdateType updateSource){
