@@ -1,5 +1,12 @@
-string _broadCastTag = "IGC SE-RLS";
+// Customise the tag if you're using this script in different
+// places in the same save or if you're on a server
+string _broadCastTag = "IGC-TTFS";
+
+// If true, the script will trigger a timer block
+// on both the local and the remote grid
 bool alsoRunOnLocalGrid = true;
+
+// Do not edit below this line unless you know what you're doing
 IMyBroadcastListener _myBroadcastListener;
 
 public Program() { 
