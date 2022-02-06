@@ -4,7 +4,7 @@ string _broadCastTag = "IGC-TTFS";
 
 // If true, the script will trigger a timer block
 // on both the local and the remote grid
-bool alsoRunOnLocalGrid = true;
+bool alsoRunOnLocalGrid = false;
 
 // Do not edit below this line unless you know what you're doing
 IMyBroadcastListener _myBroadcastListener;
