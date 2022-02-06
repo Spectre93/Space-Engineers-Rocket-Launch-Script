@@ -1,5 +1,6 @@
 // The tag on the programmable block that
-// you want to send the stage names to
+// you want to send the stage names to,
+// enclosed in square brackets '[ ]'
 string _PBTag = "PB-IGC";
 
 // The command to send to the programmble
