@@ -50,17 +50,12 @@ public void Main(string argument){
 		Vector3D localGrav = Vector3D.Transform(grav, MatrixD.Transpose(gyro.WorldMatrix.GetOrientation()));
 		Vector3D rotation = Vector3D.Cross(localDown, localGrav);
 
-		double angle = rotation.Length();
-		angle = Math.Atan2(angle, Math.Sqrt(Math.Max(0.0, 1.0 - angle * angle)));
-
-		double controlCoeff = gyro.GetMaximum<float>("Yaw") * (angle / Math.PI);
-		controlCoeff = Math.Min(gyro.GetMaximum<float>("Yaw"), controlCoeff);
+		double controlCoeff = gyro.GetMaximum<float>("Roll") * (rotation.Length() / Math.PI);
 
 		rotation.Normalize();
 		rotation *= controlCoeff;
-
+		
 		gyro.SetValueFloat("Pitch", (float) rotation.GetDim(0));
-		gyro.SetValueFloat("Yaw", -(float) rotation.GetDim(1));
 		gyro.SetValueFloat("Roll", -(float) rotation.GetDim(2));
 	}
 }
